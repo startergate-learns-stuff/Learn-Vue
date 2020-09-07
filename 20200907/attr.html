@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        window.onload = _ => {
+          const vm = new Vue({
+            el: '#app',
+            data: {
+              google: 'https://google.com',
+              daum: 'https://daum.net',
+              ppo: 'ppo2.jpeg',
+              isGood: false
+            }
+          })
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <p><h3 v-if="isGood">민우냥이</h3></p>
+        <a href="https://google.com">Google</a>
+        <a :href="daum">Daum</a>
+        <img src="ppo.jpeg" alt="">
+        <img :src="ppo" alt="">
+    </div>
+</body>
+</html>

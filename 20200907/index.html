@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      window.onload = _ => {
+        const vm = new Vue({
+          el: '#app',
+          data: {
+            msg: '<strong>Hi</strong>',
+            number: 0,
+            sports: ['야구', '축구', '배구', '농구'],
+            fruits: [
+              {
+                name: '사과',
+                price: 9000
+              },
+              {
+                name: '귤',
+                price: 10000
+              },
+              {
+                name: '수박',
+                price: 15000
+              },
+              {
+                name: '배',
+                price: 8000
+              },
+            ]
+          },
+          methods: {
+            plus: function () {
+              this.number++
+            },
+            minus: function () {
+              this.number--
+            }
+          }
+        });
+        vm.$mount('#app');
+      };
+    </script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="fruit in fruits">{{fruit.name}}은(는) {{fruit.price}}원 입니다.</li>
+        </ul>
+        <ul>
+            <li v-for="sport in sports">{{sport}}</li>
+        </ul>
+        {{sports[1]}}
+        <p v-text="msg"></p>
+        <p v-html="msg"></p>
+        {{msg + '님 반갑습니다.'}}
+        {{number}} <button v-on:click="plus">플러스</button> <button v-on:click="minus">플러스</button>
+    </div>
+
+</body>
+</html>
