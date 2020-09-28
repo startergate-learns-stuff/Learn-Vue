@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        window.onload = _ => {
+          const vm = new Vue({
+            el: '#app',
+            data: {
+              msg: '메시지',
+              num1: 0,
+              num2: 0
+            }
+          })
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <input type="number" v-model.number="num1"> +
+        <input type="number" v-model.number="num2"> = {{num1 + num2}}
+        <br>
+        <input type="text" v-model="msg"> {{msg}}
+        <br>
+        <input type="text" v-model.trim="msg"> {{msg}}
+        <pre>{{msg}}</pre>
+    </div>
+</body>
+</html>

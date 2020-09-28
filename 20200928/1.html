@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cancel {
+            color: gainsboro;
+            text-decoration: line-through;
+        }
+        .dark {
+            background-color: grey;
+        }
+    </style>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        window.onload = _ => {
+          const vm = new Vue({
+            el: '#app',
+            data: {
+              msg: '메시지',
+              img: 'https://www.travie.com/news/photo/first/201803/img_20163_1.jpg',
+              imgWidth: 200,
+              url: 'https://google.com',
+              myAlign: 'right',
+              myAlign2: 'left',
+              yellow: 'yellow',
+              classCancel: 'cancel'
+            }
+          })
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <span :class="classCancel">A autem consectetur ipsa ipsum iusto minus non odit sapiente temporibus voluptatem?</span> Cupiditate, doloribus exercitationem laborum odit officiis porro quibusdam quisquam <span class="dark">veniam!</span></p>
+            <p class="cancel">클래스 스타일</p>
+            <p :style="{backgroundColor: yellow}">헤에에</p>
+            <p style="background-color: gainsboro">스타일시트</p>
+            <span style="background-color: grey">스타일시트</span>
+            <p :align="myAlign">ㅇㄴ</p>
+            <p :align="myAlign2">ㄴㅇ</p>
+        </div>
+        <a :href="url">에헤헤에</a>
+        <img :src="img" :width="imgWidth" alt="">
+        <span v-text="msg"></span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        window.onload = _ => {
+          const vm = new Vue({
+            el: '#app',
+            data: {
+              msg: '메시지',
+              text: '',
+              myCheck: false,
+              myCheck2: [],
+              agree: false,
+              img: 'A220.jpg',
+              mySelect: '',
+              mySelect2: []
+            }
+          })
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div id="check">
+            <input type="checkbox" v-model="myCheck"> 체크 {{myCheck}}
+        </div>
+        <div id="check2">
+            <input type="checkbox" value="값1" v-model="myCheck2"> 체크1
+            <input type="checkbox" value="값2" v-model="myCheck2"> 체크2
+            <input type="checkbox" value="값3" v-model="myCheck2"> 체크3
+        </div>
+        <div id="check3">
+            <input type="checkbox" v-model="agree"> 동의합니다.
+            <button>전송</button>
+        </div>
+        <div>
+            <input type="radio" value="A220.jpg" v-model="img"> A220
+            <input type="radio" value="A330.jpg" v-model="img"> A330
+            <input type="radio" value="A350.jpg" v-model="img"> A350
+            {{img}}
+        </div>
+        <img width="200" :src="img" alt="">
+        <div>
+            <select v-model="mySelect">
+                <option value="A220.jpg">A220</option>
+                <option value="A330.jpg">A330</option>
+                <option value="A350.jpg">A350</option>
+            </select>
+        </div>
+        <div id="select2">
+            <select multiple v-model="mySelect2">
+                <option>선택1</option>
+                <option>선택2</option>
+                <option>선택3</option>
+            </select>
+        </div>
+        <div id="text">
+            <textarea name="" id="" cols="30" rows="10" v-model="text"></textarea>
+            {{text.length}}자 입력되었습니다.
+        </div>
+        이름: <input type="text" v-model="msg">
+        <br>
+        {{msg}}
+    </div>
+</body>
+</html>
