@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        window.onload = _ => {
+          const _data = [
+            ['종류', '개수'],
+            ['사과', 2],
+            ['배', 3],
+            ['귤', 7]
+          ];
+
+          const draw = _ => {
+            let data = google.visualization.arrayToDataTable(_data);
+            let options = {height: 400, title: '과일', 'is3D': true};
+            let chart = new google.visualization.PieChart(document.getElementById('chart'));
+            chart.draw(data, options);
+          };
+
+          google.charts.load('current', {packages: ['corechart']});
+          google.charts.setOnLoadCallback(draw);
+        }
+    </script>
+</head>
+<body>
+    <div id="chart"></div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      window.onload = _ => {
+        const vm = new Vue({
+          el: '#app',
+          data: {
+            header: ['프로그래밍 언어', 2018, 2013, 2008, 2003, 1998],
+            ranking: [
+              ['Java', 1, 2, 1, 1, 16],
+              ['C', 2, 1, 2, 2, 1],
+              ['JavaScript', 7, 10, 8, 7, 20],
+            ]
+          }
+        });
+      }
+    </script>
+    <style>
+        table, thead, tbody, tfoot, tr, th, td {
+            margin: 0;
+            padding: 0;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid gainsboro;
+        }
+        th {
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <caption>프로그래밍 언어 인기 순위</caption>
+            <thead>
+                <tr>
+                    <th v-for="title in header">{{title}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="lang in ranking">
+                    <td v-for="item in lang">{{item}}</td>
+                </tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+</body>
+</html>
