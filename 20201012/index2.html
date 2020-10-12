@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+    <script src="https://unpkg.com/bootstrap-vue/dist/bootstrap-vue.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      window.onload = _ => {
+        const vm = new Vue({
+          el: '#app',
+          data: {
+            list: [
+              ['Year', 'Java', 'C', 'C++', 'Python', 'JavaScript'],
+              ['1998', 16, 1, 2, 23, 20],
+              ['2003', 1, 2, 3, 11, 7],
+              ['2008', 1, 2, 3, 11, 8],
+              ['1998', 1, 2, 3, 6, 8],
+            ]
+          },
+          created: function () {
+            const draw = _ => {
+              let data = google.visualization.arrayToDataTable(this.list);
+              let options = {height: 400, seriesType: 'bars', vAxis: {title: 'Ranking'}, hAxis: {title: 'Year'}};
+              console.log(this.$refs)
+              let chart = new google.visualization.ComboChart(this.$refs.chart);
+              chart.draw(data, options);
+            };
+
+            google.charts.load('current', {packages: ['corechart']});
+            google.charts.setOnLoadCallback(draw);
+          }
+        })
+      }
+    </script>
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <table class="table">
+            <tbody>
+                <tr v-for="row in list">
+                    <td v-for="item in row">{{item}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="chart"></div>
+</body>
+</html>

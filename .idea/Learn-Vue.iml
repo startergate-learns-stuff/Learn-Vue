@@ -10,5 +10,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="vue" level="application" />
     <orderEntry type="library" name="loader" level="application" />
+    <orderEntry type="library" name="axios" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="bootstrap-vue" level="application" />
   </component>
 </module>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        window.onload = _ => {
+          const vm = new Vue({
+            el: '#app',
+            data: {
+              list: [['이름', '개수']]
+            },
+            created: async function () {
+              const res = await axios.get('http://localhost:3000/list');
+              for (let i in res.data) {
+                let arr = [Object.keys(res.data[i])[0], Object.values(res.data[i])[0]]
+                console.log(arr)
+                this.list.push(arr)
+              }
+              // this.list = res.data;
+              const draw = _ => {
+                let _data = google.visualization.arrayToDataTable(this.list);
+                let options = {height: 400, seriesType: 'bars'};
+                let chart = new google.visualization.ComboChart(document.getElementById('chart'));
+                chart.draw(_data, options);
+              };
+
+              google.charts.load('current', {packages: ['corechart']});
+              google.charts.setOnLoadCallback(draw);
+            }
+          })
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        {{list}}
+        <div id="chart"></div>
+    </div>
+</body>
+</html>
