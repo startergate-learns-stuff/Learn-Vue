@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <todo-header></todo-header>
+        <todo-input></todo-input>
+        <todo-list></todo-list>
+        <todo-footer></todo-footer>
+    </div>
+</body>
+<script src="./todo-header.vue.js"></script>
+<script src="./todo-input.vue.js"></script>
+<script src="./todo-list.vue.js"></script>
+<script src="./todo-footer.vue.js"></script>
+<script>
+  Vue.component('todo-header', TodoHeader);
+  Vue.component('todo-input', TodoInput);
+  Vue.component('todo-list', TodoList);
+  Vue.component('todo-footer', TodoFooter);
+  const vm = new Vue({
+    el: '#app'
+  });
+</script>
+</html>
